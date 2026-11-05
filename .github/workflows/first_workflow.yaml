@@ -7,3 +7,10 @@ jobs:
         steps:
             - name: Display some test text
               run: echo "Hello, this is my first workflow!"
+            - name: Command in Multiline
+              run: |
+                  echo "This is a multiline command."
+                  echo "It can run multiple lines of code."
+                  echo "Each line will be executed in order."
+                  node -v
+                  npm -v
