@@ -5,8 +5,14 @@ jobs:
     run-first-command:
         runs-on: ubuntu-latest
         steps:
-            - name: List Files and Copy Repo
+            - name: List Files
               run: ls -la
-            - uses: actions/checkout@v4
+            #- uses: actions/checkout@v4
+            - name: Copy files from repo to virtual machine
+              run: |
+                  git init
+                  git remote add origin "https://@GITHUB_ACTOR:${{ secrets.GITHUB_TOKEN }}@github.com/AlessxR/$GITHUB_REPOSITORY.git"
+                  get fetch origin
+                  get checkout main
             - name: List Files
               run: ls -la
